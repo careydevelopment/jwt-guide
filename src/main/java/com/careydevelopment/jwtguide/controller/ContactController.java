@@ -1,4 +1,4 @@
-package com.careydevelopment.requestparameterguide.controller;
+package com.careydevelopment.jwtguide.controller;
 
 import java.util.Optional;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.careydevelopment.requestparameterguide.model.Contact;
-import com.careydevelopment.requestparameterguide.service.ContactService;
+import com.careydevelopment.jwtguide.model.Contact;
+import com.careydevelopment.jwtguide.service.ContactService;
 
 @RestController
 public class ContactController {

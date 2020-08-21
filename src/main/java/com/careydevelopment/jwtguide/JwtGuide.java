@@ -1,12 +1,12 @@
-package com.careydevelopment.requestparameterguide;
+package com.careydevelopment.jwtguide;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RequestParameterGuide {
+public class JwtGuide {
 
     public static void main(String[] args) {
-        SpringApplication.run(RequestParameterGuide.class,args);
+        SpringApplication.run(JwtGuide.class,args);
     }
 }

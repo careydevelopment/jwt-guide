@@ -1,4 +1,4 @@
-package com.careydevelopment.requestparameterguide.model;
+package com.careydevelopment.jwtguide.model;
 
 public class Contact {
 

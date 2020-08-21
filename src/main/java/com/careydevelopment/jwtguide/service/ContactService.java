@@ -1,11 +1,11 @@
-package com.careydevelopment.requestparameterguide.service;
+package com.careydevelopment.jwtguide.service;
 
 import java.util.Optional;
 import java.util.stream.Stream;
 
 import org.springframework.stereotype.Service;
 
-import com.careydevelopment.requestparameterguide.model.Contact;
+import com.careydevelopment.jwtguide.model.Contact;
 
 @Service
 public class ContactService {
