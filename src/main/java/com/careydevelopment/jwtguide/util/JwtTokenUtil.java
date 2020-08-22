@@ -1,7 +1,7 @@
 package com.careydevelopment.jwtguide.util;
 
-import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
@@ -13,11 +13,9 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
-public class JwtTokenUtil implements Serializable {
+public class JwtTokenUtil {
 
-	private static final long serialVersionUID = -8274549945478145377L;
-
-	private static final long JWT_TOKEN_VALIDITY = 24 * 60 * 60;
+	private static final long JWT_TOKEN_VALIDITY = 24 * 60 * 60 * 1000;
 	public static final String SECRET = "mysecret";
 	
 	private String token = null;
@@ -67,7 +65,10 @@ public class JwtTokenUtil implements Serializable {
 
 	
 	private static Map<String, Object> addClaims(User user) {
-		Map<String, Object> claims = MapUtils.toKeyValuePairs(user);		
+		Map<String, Object> claims = new HashMap<String, Object>();
+		
+		claims.put("id", user.getId());
+		
 		return claims;
 	}	
 
@@ -77,7 +78,7 @@ public class JwtTokenUtil implements Serializable {
 				.setClaims(claims)
 				.setSubject(subject)
 				.setIssuedAt(new Date(System.currentTimeMillis()))
-				.setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY * 1000))
+				.setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY))
 				.signWith(SignatureAlgorithm.HS512, SECRET).compact();
 	}
 

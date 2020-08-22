@@ -59,18 +59,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity
-		 	//exclude OPTIONS requests from CORS checks
 			.cors().and()
 			.csrf().disable()
 			.authorizeRequests() 
 			.antMatchers("/authenticate").permitAll()
-			.antMatchers(HttpMethod.GET, "/utilities/**").permitAll()
-			.antMatchers(HttpMethod.POST, "/user/**").access("hasAuthority('BIXIS_USER')")
-			.antMatchers(HttpMethod.PUT, "/user/**").access("hasAuthority('BIXIS_USER')")
-			.antMatchers(HttpMethod.DELETE, "/user/**").access("hasAuthority('BIXIS_USER')")
-			.antMatchers(HttpMethod.POST, "/contacts/**").access("hasAuthority('BIXIS_USER')")
-			.antMatchers(HttpMethod.PUT, "/contacts/**").access("hasAuthority('BIXIS_USER')")
-			.antMatchers(HttpMethod.DELETE, "/contacts/**").access("hasAuthority('BIXIS_USER')")
+			.antMatchers(HttpMethod.GET, "/user/**").access("hasAuthority('JWT_USER')")
 			.anyRequest().authenticated().and()
 			.exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
 			.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
