@@ -19,7 +19,6 @@ import com.careydevelopment.jwtguide.util.JwtTokenUtil;
 
 
 @RestController
-@CrossOrigin
 public class JwtAuthenticationController {
 
 	@Autowired

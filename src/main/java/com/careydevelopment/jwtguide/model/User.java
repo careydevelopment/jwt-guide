@@ -31,6 +31,8 @@ public class User implements UserDetails {
 	private String username;
 	private String country;
 	private String profileImageFileName;
+	
+	@JsonIgnore
 	private String password;	
 	
 	
